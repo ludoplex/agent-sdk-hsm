@@ -1,0 +1,2587 @@
+{
+  "manifestVersion": 1,
+  "rootPath": ".",
+  "sourceRoot": "src",
+  "discoveryOrder": "sorted-relative-path then depth-first AST traversal",
+  "filesScanned": [
+    {
+      "file": "index.ts",
+      "filepath": "src/index.ts"
+    },
+    {
+      "file": "all-tools.ts",
+      "filepath": "src/registry/all-tools.ts"
+    },
+    {
+      "file": "index.ts",
+      "filepath": "src/registry/index.ts"
+    },
+    {
+      "file": "tools-build.ts",
+      "filepath": "src/registry/tools-build.ts"
+    },
+    {
+      "file": "tools-filesystem.ts",
+      "filepath": "src/registry/tools-filesystem.ts"
+    },
+    {
+      "file": "tools-git.ts",
+      "filepath": "src/registry/tools-git.ts"
+    },
+    {
+      "file": "tools-misc.ts",
+      "filepath": "src/registry/tools-misc.ts"
+    },
+    {
+      "file": "tools-network.ts",
+      "filepath": "src/registry/tools-network.ts"
+    },
+    {
+      "file": "tools-test.ts",
+      "filepath": "src/registry/tools-test.ts"
+    },
+    {
+      "file": "server.ts",
+      "filepath": "src/server.ts"
+    },
+    {
+      "file": "hsm-runtime.ts",
+      "filepath": "src/tools/hsm-runtime.ts"
+    },
+    {
+      "file": "plan-builder.ts",
+      "filepath": "src/tools/plan-builder.ts"
+    },
+    {
+      "file": "script-generator.ts",
+      "filepath": "src/tools/script-generator.ts"
+    },
+    {
+      "file": "types.ts",
+      "filepath": "src/types.ts"
+    }
+  ],
+  "functions": [
+    {
+      "name": "startServer().catch::<callback>",
+      "kind": "ArrowFunction",
+      "file": "index.ts",
+      "filepath": "src/index.ts",
+      "line": 3,
+      "column": 21,
+      "lineText": "startServer().catch((err) => {",
+      "category": "function"
+    },
+    {
+      "name": "createRegistry",
+      "kind": "FunctionDeclaration",
+      "file": "all-tools.ts",
+      "filepath": "src/registry/all-tools.ts",
+      "line": 9,
+      "column": 1,
+      "lineText": "export function createRegistry(): ToolRegistry {",
+      "category": "function"
+    },
+    {
+      "name": "register",
+      "kind": "MethodDeclaration",
+      "file": "index.ts",
+      "filepath": "src/registry/index.ts",
+      "line": 8,
+      "column": 3,
+      "lineText": "  register(tool: ToolDef): void {",
+      "category": "function"
+    },
+    {
+      "name": "registerAll",
+      "kind": "MethodDeclaration",
+      "file": "index.ts",
+      "filepath": "src/registry/index.ts",
+      "line": 26,
+      "column": 3,
+      "lineText": "  registerAll(tools: ToolDef[]): void {",
+      "category": "function"
+    },
+    {
+      "name": "get",
+      "kind": "MethodDeclaration",
+      "file": "index.ts",
+      "filepath": "src/registry/index.ts",
+      "line": 32,
+      "column": 3,
+      "lineText": "  get(name: string): ToolDef | undefined {",
+      "category": "function"
+    },
+    {
+      "name": "lookup",
+      "kind": "MethodDeclaration",
+      "file": "index.ts",
+      "filepath": "src/registry/index.ts",
+      "line": 36,
+      "column": 3,
+      "lineText": "  lookup(req: LookupRequest): ToolDef[] {",
+      "category": "function"
+    },
+    {
+      "name": "[...names].map::<callback>",
+      "kind": "ArrowFunction",
+      "file": "index.ts",
+      "filepath": "src/registry/index.ts",
+      "line": 42,
+      "column": 26,
+      "lineText": "        ? [...names].map(n => this.tools.get(n)!).filter(Boolean)",
+      "category": "function"
+    },
+    {
+      "name": "candidates.filter::<callback>",
+      "kind": "ArrowFunction",
+      "file": "index.ts",
+      "filepath": "src/registry/index.ts",
+      "line": 49,
+      "column": 38,
+      "lineText": "      candidates = candidates.filter(t =>",
+      "category": "function"
+    },
+    {
+      "name": "req.tags!.some::<callback>",
+      "kind": "ArrowFunction",
+      "file": "index.ts",
+      "filepath": "src/registry/index.ts",
+      "line": 50,
+      "column": 24,
+      "lineText": "        req.tags!.some(tag => t.tags.includes(tag))",
+      "category": "function"
+    },
+    {
+      "name": "t.tags.some::<callback>",
+      "kind": "ArrowFunction",
+      "file": "index.ts",
+      "filepath": "src/registry/index.ts",
+      "line": 59,
+      "column": 21,
+      "lineText": "        t.tags.some(tag => tag.toLowerCase().includes(q))",
+      "category": "function"
+    },
+    {
+      "name": "candidates.sort::<callback>",
+      "kind": "ArrowFunction",
+      "file": "index.ts",
+      "filepath": "src/registry/index.ts",
+      "line": 64,
+      "column": 21,
+      "lineText": "    candidates.sort((a, b) => {",
+      "category": "function"
+    },
+    {
+      "name": "categories",
+      "kind": "MethodDeclaration",
+      "file": "index.ts",
+      "filepath": "src/registry/index.ts",
+      "line": 73,
+      "column": 3,
+      "lineText": "  categories(): ToolCategory[] {",
+      "category": "function"
+    },
+    {
+      "name": "allTags",
+      "kind": "MethodDeclaration",
+      "file": "index.ts",
+      "filepath": "src/registry/index.ts",
+      "line": 77,
+      "column": 3,
+      "lineText": "  allTags(): string[] {",
+      "category": "function"
+    },
+    {
+      "name": "size",
+      "kind": "MethodDeclaration",
+      "file": "index.ts",
+      "filepath": "src/registry/index.ts",
+      "line": 81,
+      "column": 3,
+      "lineText": "  size(): number {",
+      "category": "function"
+    },
+    {
+      "name": "all",
+      "kind": "MethodDeclaration",
+      "file": "index.ts",
+      "filepath": "src/registry/index.ts",
+      "line": 85,
+      "column": 3,
+      "lineText": "  all(): ToolDef[] {",
+      "category": "function"
+    },
+    {
+      "name": "relevanceScore",
+      "kind": "MethodDeclaration",
+      "file": "index.ts",
+      "filepath": "src/registry/index.ts",
+      "line": 89,
+      "column": 3,
+      "lineText": "  private relevanceScore(tool: ToolDef, query: string): number {",
+      "category": "function"
+    },
+    {
+      "name": "server.setRequestHandler::<callback>",
+      "kind": "ArrowFunction",
+      "file": "server.ts",
+      "filepath": "src/server.ts",
+      "line": 19,
+      "column": 50,
+      "lineText": "server.setRequestHandler(ListToolsRequestSchema, async () => ({",
+      "category": "function"
+    },
+    {
+      "name": "cats.map::<callback>",
+      "kind": "ArrowFunction",
+      "file": "server.ts",
+      "filepath": "src/server.ts",
+      "line": 163,
+      "column": 34,
+      "lineText": "        const summary = cats.map(cat => {",
+      "category": "function"
+    },
+    {
+      "name": "renderTable",
+      "kind": "FunctionDeclaration",
+      "file": "server.ts",
+      "filepath": "src/server.ts",
+      "line": 187,
+      "column": 1,
+      "lineText": "function renderTable(hsm: import('./types.js').HSMDefinition): string {",
+      "category": "function"
+    },
+    {
+      "name": "walk",
+      "kind": "FunctionDeclaration",
+      "file": "server.ts",
+      "filepath": "src/server.ts",
+      "line": 190,
+      "column": 3,
+      "lineText": "  function walk(state: import('./types.js').HSMState, prefix: string): void {",
+      "category": "function"
+    },
+    {
+      "name": "headers.map::<callback>",
+      "kind": "ArrowFunction",
+      "file": "server.ts",
+      "filepath": "src/server.ts",
+      "line": 234,
+      "column": 30,
+      "lineText": "  const widths = headers.map((h, i) => {",
+      "category": "function"
+    },
+    {
+      "name": "rows.map::<callback>",
+      "kind": "ArrowFunction",
+      "file": "server.ts",
+      "filepath": "src/server.ts",
+      "line": 236,
+      "column": 43,
+      "lineText": "    return Math.max(h.length, ...rows.map(r => r[key].length));",
+      "category": "function"
+    },
+    {
+      "name": "widths.map::<callback>",
+      "kind": "ArrowFunction",
+      "file": "server.ts",
+      "filepath": "src/server.ts",
+      "line": 239,
+      "column": 32,
+      "lineText": "  const sep = '+' + widths.map(w => '-'.repeat(w + 2)).join('+') + '+';",
+      "category": "function"
+    },
+    {
+      "name": "fmt",
+      "kind": "ArrowFunction",
+      "file": "server.ts",
+      "filepath": "src/server.ts",
+      "line": 240,
+      "column": 15,
+      "lineText": "  const fmt = (vals: string[]) => '| ' + vals.map((v, i) => v.padEnd(widths[i])).join(' | ') + ' |';",
+      "category": "function"
+    },
+    {
+      "name": "vals.map::<callback>",
+      "kind": "ArrowFunction",
+      "file": "server.ts",
+      "filepath": "src/server.ts",
+      "line": 240,
+      "column": 51,
+      "lineText": "  const fmt = (vals: string[]) => '| ' + vals.map((v, i) => v.padEnd(widths[i])).join(' | ') + ' |';",
+      "category": "function"
+    },
+    {
+      "name": "keys.map::<callback>",
+      "kind": "ArrowFunction",
+      "file": "server.ts",
+      "filepath": "src/server.ts",
+      "line": 249,
+      "column": 35,
+      "lineText": "    ...rows.map(r => fmt(keys.map(k => r[k]))),",
+      "category": "function"
+    },
+    {
+      "name": "startServer",
+      "kind": "FunctionDeclaration",
+      "file": "server.ts",
+      "filepath": "src/server.ts",
+      "line": 258,
+      "column": 1,
+      "lineText": "export async function startServer(): Promise<void> {",
+      "category": "function"
+    },
+    {
+      "name": "findState",
+      "kind": "FunctionDeclaration",
+      "file": "hsm-runtime.ts",
+      "filepath": "src/tools/hsm-runtime.ts",
+      "line": 3,
+      "column": 1,
+      "lineText": "function findState(states: HSMState[], path: string[]): HSMState | undefined {",
+      "category": "function"
+    },
+    {
+      "name": "states.find::<callback>",
+      "kind": "ArrowFunction",
+      "file": "hsm-runtime.ts",
+      "filepath": "src/tools/hsm-runtime.ts",
+      "line": 5,
+      "column": 30,
+      "lineText": "  const target = states.find(s => s.name === path[0]);",
+      "category": "function"
+    },
+    {
+      "name": "resolveInitial",
+      "kind": "FunctionDeclaration",
+      "file": "hsm-runtime.ts",
+      "filepath": "src/tools/hsm-runtime.ts",
+      "line": 10,
+      "column": 1,
+      "lineText": "function resolveInitial(state: HSMState): string[] {",
+      "category": "function"
+    },
+    {
+      "name": "state.children.find::<callback>",
+      "kind": "ArrowFunction",
+      "file": "hsm-runtime.ts",
+      "filepath": "src/tools/hsm-runtime.ts",
+      "line": 13,
+      "column": 39,
+      "lineText": "    const child = state.children.find(s => s.name === state.initial);",
+      "category": "function"
+    },
+    {
+      "name": "getActiveHierarchy",
+      "kind": "FunctionDeclaration",
+      "file": "hsm-runtime.ts",
+      "filepath": "src/tools/hsm-runtime.ts",
+      "line": 19,
+      "column": 1,
+      "lineText": "function getActiveHierarchy(states: HSMState[], qualified: string): string[] {",
+      "category": "function"
+    },
+    {
+      "name": "current.find::<callback>",
+      "kind": "ArrowFunction",
+      "file": "hsm-runtime.ts",
+      "filepath": "src/tools/hsm-runtime.ts",
+      "line": 25,
+      "column": 32,
+      "lineText": "    const found = current.find(s => s.name === part);",
+      "category": "function"
+    },
+    {
+      "name": "createHSMRuntime",
+      "kind": "FunctionDeclaration",
+      "file": "hsm-runtime.ts",
+      "filepath": "src/tools/hsm-runtime.ts",
+      "line": 32,
+      "column": 1,
+      "lineText": "export function createHSMRuntime(plan: ExecutionPlan): HSMRuntime {",
+      "category": "function"
+    },
+    {
+      "name": "send",
+      "kind": "FunctionDeclaration",
+      "file": "hsm-runtime.ts",
+      "filepath": "src/tools/hsm-runtime.ts",
+      "line": 42,
+      "column": 3,
+      "lineText": "  function send(event: HSMEvent): HSMContext {",
+      "category": "function"
+    },
+    {
+      "name": "state.transitions.find::<callback>",
+      "kind": "ArrowFunction",
+      "file": "hsm-runtime.ts",
+      "filepath": "src/tools/hsm-runtime.ts",
+      "line": 50,
+      "column": 49,
+      "lineText": "      const transition = state.transitions.find(t => t.event === event.type);",
+      "category": "function"
+    },
+    {
+      "name": "matches",
+      "kind": "FunctionDeclaration",
+      "file": "hsm-runtime.ts",
+      "filepath": "src/tools/hsm-runtime.ts",
+      "line": 103,
+      "column": 3,
+      "lineText": "  function matches(pattern: string): boolean {",
+      "category": "function"
+    },
+    {
+      "name": "getActiveStates",
+      "kind": "FunctionDeclaration",
+      "file": "hsm-runtime.ts",
+      "filepath": "src/tools/hsm-runtime.ts",
+      "line": 107,
+      "column": 3,
+      "lineText": "  function getActiveStates(): string[] {",
+      "category": "function"
+    },
+    {
+      "name": "renderSM",
+      "kind": "FunctionDeclaration",
+      "file": "hsm-runtime.ts",
+      "filepath": "src/tools/hsm-runtime.ts",
+      "line": 116,
+      "column": 1,
+      "lineText": "export function renderSM(hsm: HSMDefinition, indent: number = 0): string {",
+      "category": "function"
+    },
+    {
+      "name": "pad",
+      "kind": "ArrowFunction",
+      "file": "hsm-runtime.ts",
+      "filepath": "src/tools/hsm-runtime.ts",
+      "line": 118,
+      "column": 15,
+      "lineText": "  const pad = (n: number) => '  '.repeat(n);",
+      "category": "function"
+    },
+    {
+      "name": "renderState",
+      "kind": "FunctionDeclaration",
+      "file": "hsm-runtime.ts",
+      "filepath": "src/tools/hsm-runtime.ts",
+      "line": 126,
+      "column": 3,
+      "lineText": "  function renderState(state: HSMState, depth: number): void {",
+      "category": "function"
+    },
+    {
+      "name": "renderHSM",
+      "kind": "FunctionDeclaration",
+      "file": "hsm-runtime.ts",
+      "filepath": "src/tools/hsm-runtime.ts",
+      "line": 165,
+      "column": 1,
+      "lineText": "export function renderHSM(hsm: HSMDefinition): string {",
+      "category": "function"
+    },
+    {
+      "name": "buildPlan",
+      "kind": "FunctionDeclaration",
+      "file": "plan-builder.ts",
+      "filepath": "src/tools/plan-builder.ts",
+      "line": 5,
+      "column": 1,
+      "lineText": "export function buildPlan(req: BuildPlanRequest, registry: ToolRegistry): ExecutionPlan {",
+      "category": "function"
+    },
+    {
+      "name": "resolvedTools.map::<callback>",
+      "kind": "ArrowFunction",
+      "file": "plan-builder.ts",
+      "filepath": "src/tools/plan-builder.ts",
+      "line": 12,
+      "column": 47,
+      "lineText": "  const steps: PlanStep[] = resolvedTools.map((tool, i) => ({",
+      "category": "function"
+    },
+    {
+      "name": "generateHSM",
+      "kind": "FunctionDeclaration",
+      "file": "plan-builder.ts",
+      "filepath": "src/tools/plan-builder.ts",
+      "line": 39,
+      "column": 1,
+      "lineText": "function generateHSM(steps: PlanStep[], name: string): HSMDefinition {",
+      "category": "function"
+    },
+    {
+      "name": "steps.map::<callback>",
+      "kind": "ArrowFunction",
+      "file": "plan-builder.ts",
+      "filepath": "src/tools/plan-builder.ts",
+      "line": 40,
+      "column": 47,
+      "lineText": "  const toolRunStates: HSMState[] = steps.map((step, i) => ({",
+      "category": "function"
+    },
+    {
+      "name": "generateScript",
+      "kind": "FunctionDeclaration",
+      "file": "script-generator.ts",
+      "filepath": "src/tools/script-generator.ts",
+      "line": 3,
+      "column": 1,
+      "lineText": "export function generateScript(req: GenerateScriptRequest): string {",
+      "category": "function"
+    },
+    {
+      "name": "generateNode",
+      "kind": "FunctionDeclaration",
+      "file": "script-generator.ts",
+      "filepath": "src/tools/script-generator.ts",
+      "line": 12,
+      "column": 1,
+      "lineText": "function generateNode(plan: ExecutionPlan): string {",
+      "category": "function"
+    },
+    {
+      "name": "generatePython",
+      "kind": "FunctionDeclaration",
+      "file": "script-generator.ts",
+      "filepath": "src/tools/script-generator.ts",
+      "line": 52,
+      "column": 1,
+      "lineText": "function generatePython(plan: ExecutionPlan): string {",
+      "category": "function"
+    },
+    {
+      "name": "generateBash",
+      "kind": "FunctionDeclaration",
+      "file": "script-generator.ts",
+      "filepath": "src/tools/script-generator.ts",
+      "line": 79,
+      "column": 1,
+      "lineText": "function generateBash(plan: ExecutionPlan): string {",
+      "category": "function"
+    }
+  ],
+  "variables": [
+    {
+      "name": "registry",
+      "kind": "const",
+      "file": "all-tools.ts",
+      "filepath": "src/registry/all-tools.ts",
+      "line": 10,
+      "column": 9,
+      "lineText": "  const registry = new ToolRegistry();",
+      "category": "variable"
+    },
+    {
+      "name": "tag",
+      "kind": "const",
+      "file": "index.ts",
+      "filepath": "src/registry/index.ts",
+      "line": 18,
+      "column": 16,
+      "lineText": "    for (const tag of tool.tags) {",
+      "category": "variable"
+    },
+    {
+      "name": "tool",
+      "kind": "const",
+      "file": "index.ts",
+      "filepath": "src/registry/index.ts",
+      "line": 27,
+      "column": 16,
+      "lineText": "    for (const tool of tools) {",
+      "category": "variable"
+    },
+    {
+      "name": "candidates",
+      "kind": "let",
+      "file": "index.ts",
+      "filepath": "src/registry/index.ts",
+      "line": 37,
+      "column": 9,
+      "lineText": "    let candidates: ToolDef[];",
+      "category": "variable"
+    },
+    {
+      "name": "names",
+      "kind": "const",
+      "file": "index.ts",
+      "filepath": "src/registry/index.ts",
+      "line": 40,
+      "column": 13,
+      "lineText": "      const names = this.byCategory.get(req.category);",
+      "category": "variable"
+    },
+    {
+      "name": "q",
+      "kind": "const",
+      "file": "index.ts",
+      "filepath": "src/registry/index.ts",
+      "line": 55,
+      "column": 13,
+      "lineText": "      const q = req.query.toLowerCase();",
+      "category": "variable"
+    },
+    {
+      "name": "scoreA",
+      "kind": "const",
+      "file": "index.ts",
+      "filepath": "src/registry/index.ts",
+      "line": 65,
+      "column": 13,
+      "lineText": "      const scoreA = this.relevanceScore(a, req.query);",
+      "category": "variable"
+    },
+    {
+      "name": "scoreB",
+      "kind": "const",
+      "file": "index.ts",
+      "filepath": "src/registry/index.ts",
+      "line": 66,
+      "column": 13,
+      "lineText": "      const scoreB = this.relevanceScore(b, req.query);",
+      "category": "variable"
+    },
+    {
+      "name": "score",
+      "kind": "let",
+      "file": "index.ts",
+      "filepath": "src/registry/index.ts",
+      "line": 92,
+      "column": 9,
+      "lineText": "    let score = 0;",
+      "category": "variable"
+    },
+    {
+      "name": "buildTools",
+      "kind": "const",
+      "file": "tools-build.ts",
+      "filepath": "src/registry/tools-build.ts",
+      "line": 3,
+      "column": 14,
+      "lineText": "export const buildTools: ToolDef[] = [",
+      "category": "variable"
+    },
+    {
+      "name": "filesystemTools",
+      "kind": "const",
+      "file": "tools-filesystem.ts",
+      "filepath": "src/registry/tools-filesystem.ts",
+      "line": 3,
+      "column": 14,
+      "lineText": "export const filesystemTools: ToolDef[] = [",
+      "category": "variable"
+    },
+    {
+      "name": "gitTools",
+      "kind": "const",
+      "file": "tools-git.ts",
+      "filepath": "src/registry/tools-git.ts",
+      "line": 3,
+      "column": 14,
+      "lineText": "export const gitTools: ToolDef[] = [",
+      "category": "variable"
+    },
+    {
+      "name": "deployTools",
+      "kind": "const",
+      "file": "tools-misc.ts",
+      "filepath": "src/registry/tools-misc.ts",
+      "line": 3,
+      "column": 14,
+      "lineText": "export const deployTools: ToolDef[] = [",
+      "category": "variable"
+    },
+    {
+      "name": "dbTools",
+      "kind": "const",
+      "file": "tools-misc.ts",
+      "filepath": "src/registry/tools-misc.ts",
+      "line": 11,
+      "column": 14,
+      "lineText": "export const dbTools: ToolDef[] = [",
+      "category": "variable"
+    },
+    {
+      "name": "cryptoTools",
+      "kind": "const",
+      "file": "tools-misc.ts",
+      "filepath": "src/registry/tools-misc.ts",
+      "line": 19,
+      "column": 14,
+      "lineText": "export const cryptoTools: ToolDef[] = [",
+      "category": "variable"
+    },
+    {
+      "name": "shellTools",
+      "kind": "const",
+      "file": "tools-misc.ts",
+      "filepath": "src/registry/tools-misc.ts",
+      "line": 26,
+      "column": 14,
+      "lineText": "export const shellTools: ToolDef[] = [",
+      "category": "variable"
+    },
+    {
+      "name": "transformTools",
+      "kind": "const",
+      "file": "tools-misc.ts",
+      "filepath": "src/registry/tools-misc.ts",
+      "line": 34,
+      "column": 14,
+      "lineText": "export const transformTools: ToolDef[] = [",
+      "category": "variable"
+    },
+    {
+      "name": "monitoringTools",
+      "kind": "const",
+      "file": "tools-misc.ts",
+      "filepath": "src/registry/tools-misc.ts",
+      "line": 49,
+      "column": 14,
+      "lineText": "export const monitoringTools: ToolDef[] = [",
+      "category": "variable"
+    },
+    {
+      "name": "aiTools",
+      "kind": "const",
+      "file": "tools-misc.ts",
+      "filepath": "src/registry/tools-misc.ts",
+      "line": 57,
+      "column": 14,
+      "lineText": "export const aiTools: ToolDef[] = [",
+      "category": "variable"
+    },
+    {
+      "name": "networkTools",
+      "kind": "const",
+      "file": "tools-network.ts",
+      "filepath": "src/registry/tools-network.ts",
+      "line": 3,
+      "column": 14,
+      "lineText": "export const networkTools: ToolDef[] = [",
+      "category": "variable"
+    },
+    {
+      "name": "testTools",
+      "kind": "const",
+      "file": "tools-test.ts",
+      "filepath": "src/registry/tools-test.ts",
+      "line": 3,
+      "column": 14,
+      "lineText": "export const testTools: ToolDef[] = [",
+      "category": "variable"
+    },
+    {
+      "name": "lintTools",
+      "kind": "const",
+      "file": "tools-test.ts",
+      "filepath": "src/registry/tools-test.ts",
+      "line": 12,
+      "column": 14,
+      "lineText": "export const lintTools: ToolDef[] = [",
+      "category": "variable"
+    },
+    {
+      "name": "server",
+      "kind": "const",
+      "file": "server.ts",
+      "filepath": "src/server.ts",
+      "line": 12,
+      "column": 7,
+      "lineText": "const server = new Server(",
+      "category": "variable"
+    },
+    {
+      "name": "name",
+      "kind": "const",
+      "file": "server.ts",
+      "filepath": "src/server.ts",
+      "line": 96,
+      "column": 9,
+      "lineText": "  const { name, arguments: args } = request.params;",
+      "category": "variable"
+    },
+    {
+      "name": "args",
+      "kind": "const",
+      "file": "server.ts",
+      "filepath": "src/server.ts",
+      "line": 96,
+      "column": 9,
+      "lineText": "  const { name, arguments: args } = request.params;",
+      "category": "variable"
+    },
+    {
+      "name": "req",
+      "kind": "const",
+      "file": "server.ts",
+      "filepath": "src/server.ts",
+      "line": 101,
+      "column": 15,
+      "lineText": "        const req = args as unknown as LookupRequest;",
+      "category": "variable"
+    },
+    {
+      "name": "results",
+      "kind": "const",
+      "file": "server.ts",
+      "filepath": "src/server.ts",
+      "line": 102,
+      "column": 15,
+      "lineText": "        const results = registry.lookup(req);",
+      "category": "variable"
+    },
+    {
+      "name": "plan",
+      "kind": "const",
+      "file": "server.ts",
+      "filepath": "src/server.ts",
+      "line": 110,
+      "column": 15,
+      "lineText": "        const plan = buildPlan(req, registry);",
+      "category": "variable"
+    },
+    {
+      "name": "output",
+      "kind": "let",
+      "file": "server.ts",
+      "filepath": "src/server.ts",
+      "line": 118,
+      "column": 13,
+      "lineText": "        let output: string;",
+      "category": "variable"
+    },
+    {
+      "name": "script",
+      "kind": "const",
+      "file": "server.ts",
+      "filepath": "src/server.ts",
+      "line": 140,
+      "column": 15,
+      "lineText": "        const script = generateScript(req);",
+      "category": "variable"
+    },
+    {
+      "name": "cats",
+      "kind": "const",
+      "file": "server.ts",
+      "filepath": "src/server.ts",
+      "line": 162,
+      "column": 15,
+      "lineText": "        const cats = registry.categories();",
+      "category": "variable"
+    },
+    {
+      "name": "summary",
+      "kind": "const",
+      "file": "server.ts",
+      "filepath": "src/server.ts",
+      "line": 163,
+      "column": 15,
+      "lineText": "        const summary = cats.map(cat => {",
+      "category": "variable"
+    },
+    {
+      "name": "tools",
+      "kind": "const",
+      "file": "server.ts",
+      "filepath": "src/server.ts",
+      "line": 164,
+      "column": 17,
+      "lineText": "          const tools = registry.lookup({ query: '', category: cat, limit: 1000 });",
+      "category": "variable"
+    },
+    {
+      "name": "err",
+      "kind": "variable",
+      "file": "server.ts",
+      "filepath": "src/server.ts",
+      "line": 176,
+      "column": 12,
+      "lineText": "  } catch (err) {",
+      "category": "variable"
+    },
+    {
+      "name": "message",
+      "kind": "const",
+      "file": "server.ts",
+      "filepath": "src/server.ts",
+      "line": 177,
+      "column": 11,
+      "lineText": "    const message = err instanceof Error ? err.message : String(err);",
+      "category": "variable"
+    },
+    {
+      "name": "rows",
+      "kind": "const",
+      "file": "server.ts",
+      "filepath": "src/server.ts",
+      "line": 188,
+      "column": 9,
+      "lineText": "  const rows: { state: string; event: string; guard: string; target: string; action: string; enter: string; exit: string }[] = [];",
+      "category": "variable"
+    },
+    {
+      "name": "qualified",
+      "kind": "const",
+      "file": "server.ts",
+      "filepath": "src/server.ts",
+      "line": 191,
+      "column": 11,
+      "lineText": "    const qualified = prefix ? `${prefix}.${state.name}` : state.name;",
+      "category": "variable"
+    },
+    {
+      "name": "i",
+      "kind": "let",
+      "file": "server.ts",
+      "filepath": "src/server.ts",
+      "line": 206,
+      "column": 16,
+      "lineText": "      for (let i = 0; i < state.transitions.length; i++) {",
+      "category": "variable"
+    },
+    {
+      "name": "t",
+      "kind": "const",
+      "file": "server.ts",
+      "filepath": "src/server.ts",
+      "line": 207,
+      "column": 15,
+      "lineText": "        const t = state.transitions[i];",
+      "category": "variable"
+    },
+    {
+      "name": "child",
+      "kind": "const",
+      "file": "server.ts",
+      "filepath": "src/server.ts",
+      "line": 221,
+      "column": 18,
+      "lineText": "      for (const child of state.children) {",
+      "category": "variable"
+    },
+    {
+      "name": "state",
+      "kind": "const",
+      "file": "server.ts",
+      "filepath": "src/server.ts",
+      "line": 227,
+      "column": 14,
+      "lineText": "  for (const state of hsm.states) {",
+      "category": "variable"
+    },
+    {
+      "name": "headers",
+      "kind": "const",
+      "file": "server.ts",
+      "filepath": "src/server.ts",
+      "line": 232,
+      "column": 9,
+      "lineText": "  const headers = ['State', 'Event', 'Guard', 'Target', 'Action', 'Enter', 'Exit'];",
+      "category": "variable"
+    },
+    {
+      "name": "keys",
+      "kind": "const",
+      "file": "server.ts",
+      "filepath": "src/server.ts",
+      "line": 233,
+      "column": 9,
+      "lineText": "  const keys: (keyof typeof rows[0])[] = ['state', 'event', 'guard', 'target', 'action', 'enter', 'exit'];",
+      "category": "variable"
+    },
+    {
+      "name": "widths",
+      "kind": "const",
+      "file": "server.ts",
+      "filepath": "src/server.ts",
+      "line": 234,
+      "column": 9,
+      "lineText": "  const widths = headers.map((h, i) => {",
+      "category": "variable"
+    },
+    {
+      "name": "key",
+      "kind": "const",
+      "file": "server.ts",
+      "filepath": "src/server.ts",
+      "line": 235,
+      "column": 11,
+      "lineText": "    const key = keys[i];",
+      "category": "variable"
+    },
+    {
+      "name": "sep",
+      "kind": "const",
+      "file": "server.ts",
+      "filepath": "src/server.ts",
+      "line": 239,
+      "column": 9,
+      "lineText": "  const sep = '+' + widths.map(w => '-'.repeat(w + 2)).join('+') + '+';",
+      "category": "variable"
+    },
+    {
+      "name": "fmt",
+      "kind": "const",
+      "file": "server.ts",
+      "filepath": "src/server.ts",
+      "line": 240,
+      "column": 9,
+      "lineText": "  const fmt = (vals: string[]) => '| ' + vals.map((v, i) => v.padEnd(widths[i])).join(' | ') + ' |';",
+      "category": "variable"
+    },
+    {
+      "name": "lines",
+      "kind": "const",
+      "file": "server.ts",
+      "filepath": "src/server.ts",
+      "line": 242,
+      "column": 9,
+      "lineText": "  const lines: string[] = [",
+      "category": "variable"
+    },
+    {
+      "name": "transport",
+      "kind": "const",
+      "file": "server.ts",
+      "filepath": "src/server.ts",
+      "line": 259,
+      "column": 9,
+      "lineText": "  const transport = new StdioServerTransport();",
+      "category": "variable"
+    },
+    {
+      "name": "target",
+      "kind": "const",
+      "file": "hsm-runtime.ts",
+      "filepath": "src/tools/hsm-runtime.ts",
+      "line": 5,
+      "column": 9,
+      "lineText": "  const target = states.find(s => s.name === path[0]);",
+      "category": "variable"
+    },
+    {
+      "name": "path",
+      "kind": "const",
+      "file": "hsm-runtime.ts",
+      "filepath": "src/tools/hsm-runtime.ts",
+      "line": 11,
+      "column": 9,
+      "lineText": "  const path = [state.name];",
+      "category": "variable"
+    },
+    {
+      "name": "parts",
+      "kind": "const",
+      "file": "hsm-runtime.ts",
+      "filepath": "src/tools/hsm-runtime.ts",
+      "line": 20,
+      "column": 9,
+      "lineText": "  const parts = qualified.split('.');",
+      "category": "variable"
+    },
+    {
+      "name": "result",
+      "kind": "const",
+      "file": "hsm-runtime.ts",
+      "filepath": "src/tools/hsm-runtime.ts",
+      "line": 21,
+      "column": 9,
+      "lineText": "  const result: string[] = [];",
+      "category": "variable"
+    },
+    {
+      "name": "current",
+      "kind": "let",
+      "file": "hsm-runtime.ts",
+      "filepath": "src/tools/hsm-runtime.ts",
+      "line": 22,
+      "column": 7,
+      "lineText": "  let current = states;",
+      "category": "variable"
+    },
+    {
+      "name": "part",
+      "kind": "const",
+      "file": "hsm-runtime.ts",
+      "filepath": "src/tools/hsm-runtime.ts",
+      "line": 23,
+      "column": 14,
+      "lineText": "  for (const part of parts) {",
+      "category": "variable"
+    },
+    {
+      "name": "found",
+      "kind": "const",
+      "file": "hsm-runtime.ts",
+      "filepath": "src/tools/hsm-runtime.ts",
+      "line": 25,
+      "column": 11,
+      "lineText": "    const found = current.find(s => s.name === part);",
+      "category": "variable"
+    },
+    {
+      "name": "hsm",
+      "kind": "const",
+      "file": "hsm-runtime.ts",
+      "filepath": "src/tools/hsm-runtime.ts",
+      "line": 33,
+      "column": 9,
+      "lineText": "  const hsm = plan.hsm;",
+      "category": "variable"
+    },
+    {
+      "name": "context",
+      "kind": "const",
+      "file": "hsm-runtime.ts",
+      "filepath": "src/tools/hsm-runtime.ts",
+      "line": 35,
+      "column": 9,
+      "lineText": "  const context: HSMContext = {",
+      "category": "variable"
+    },
+    {
+      "name": "depth",
+      "kind": "let",
+      "file": "hsm-runtime.ts",
+      "filepath": "src/tools/hsm-runtime.ts",
+      "line": 45,
+      "column": 14,
+      "lineText": "    for (let depth = parts.length; depth > 0; depth--) {",
+      "category": "variable"
+    },
+    {
+      "name": "statePath",
+      "kind": "const",
+      "file": "hsm-runtime.ts",
+      "filepath": "src/tools/hsm-runtime.ts",
+      "line": 46,
+      "column": 13,
+      "lineText": "      const statePath = parts.slice(0, depth);",
+      "category": "variable"
+    },
+    {
+      "name": "transition",
+      "kind": "const",
+      "file": "hsm-runtime.ts",
+      "filepath": "src/tools/hsm-runtime.ts",
+      "line": 50,
+      "column": 13,
+      "lineText": "      const transition = state.transitions.find(t => t.event === event.type);",
+      "category": "variable"
+    },
+    {
+      "name": "ref",
+      "kind": "const",
+      "file": "hsm-runtime.ts",
+      "filepath": "src/tools/hsm-runtime.ts",
+      "line": 57,
+      "column": 15,
+      "lineText": "        const ref = target.slice(1);",
+      "category": "variable"
+    },
+    {
+      "name": "parentPath",
+      "kind": "const",
+      "file": "hsm-runtime.ts",
+      "filepath": "src/tools/hsm-runtime.ts",
+      "line": 63,
+      "column": 15,
+      "lineText": "        const parentPath = statePath.slice(0, -1).join('.');",
+      "category": "variable"
+    },
+    {
+      "name": "lastChild",
+      "kind": "const",
+      "file": "hsm-runtime.ts",
+      "filepath": "src/tools/hsm-runtime.ts",
+      "line": 64,
+      "column": 15,
+      "lineText": "        const lastChild = context.history.get(parentPath);",
+      "category": "variable"
+    },
+    {
+      "name": "parentParts",
+      "kind": "const",
+      "file": "hsm-runtime.ts",
+      "filepath": "src/tools/hsm-runtime.ts",
+      "line": 81,
+      "column": 15,
+      "lineText": "        const parentParts = statePath.slice(0, -1);",
+      "category": "variable"
+    },
+    {
+      "name": "targetParts",
+      "kind": "const",
+      "file": "hsm-runtime.ts",
+      "filepath": "src/tools/hsm-runtime.ts",
+      "line": 88,
+      "column": 13,
+      "lineText": "      const targetParts = target.split('.');",
+      "category": "variable"
+    },
+    {
+      "name": "targetState",
+      "kind": "const",
+      "file": "hsm-runtime.ts",
+      "filepath": "src/tools/hsm-runtime.ts",
+      "line": 89,
+      "column": 13,
+      "lineText": "      const targetState = findState(hsm.states, targetParts);",
+      "category": "variable"
+    },
+    {
+      "name": "initialPath",
+      "kind": "const",
+      "file": "hsm-runtime.ts",
+      "filepath": "src/tools/hsm-runtime.ts",
+      "line": 91,
+      "column": 15,
+      "lineText": "        const initialPath = resolveInitial(targetState);",
+      "category": "variable"
+    },
+    {
+      "name": "pad",
+      "kind": "const",
+      "file": "hsm-runtime.ts",
+      "filepath": "src/tools/hsm-runtime.ts",
+      "line": 118,
+      "column": 9,
+      "lineText": "  const pad = (n: number) => '  '.repeat(n);",
+      "category": "variable"
+    },
+    {
+      "name": "line",
+      "kind": "let",
+      "file": "hsm-runtime.ts",
+      "filepath": "src/tools/hsm-runtime.ts",
+      "line": 136,
+      "column": 11,
+      "lineText": "      let line = `${pad(depth + 1)}on ${t.event}`;",
+      "category": "variable"
+    },
+    {
+      "name": "composite",
+      "kind": "const",
+      "file": "hsm-runtime.ts",
+      "filepath": "src/tools/hsm-runtime.ts",
+      "line": 177,
+      "column": 11,
+      "lineText": "    const composite = state.children && state.children.length > 0;",
+      "category": "variable"
+    },
+    {
+      "name": "resolvedTools",
+      "kind": "const",
+      "file": "plan-builder.ts",
+      "filepath": "src/tools/plan-builder.ts",
+      "line": 6,
+      "column": 9,
+      "lineText": "  const resolvedTools: ToolDef[] = [];",
+      "category": "variable"
+    },
+    {
+      "name": "steps",
+      "kind": "const",
+      "file": "plan-builder.ts",
+      "filepath": "src/tools/plan-builder.ts",
+      "line": 12,
+      "column": 9,
+      "lineText": "  const steps: PlanStep[] = resolvedTools.map((tool, i) => ({",
+      "category": "variable"
+    },
+    {
+      "name": "toolRunStates",
+      "kind": "const",
+      "file": "plan-builder.ts",
+      "filepath": "src/tools/plan-builder.ts",
+      "line": 40,
+      "column": 9,
+      "lineText": "  const toolRunStates: HSMState[] = steps.map((step, i) => ({",
+      "category": "variable"
+    },
+    {
+      "name": "states",
+      "kind": "const",
+      "file": "plan-builder.ts",
+      "filepath": "src/tools/plan-builder.ts",
+      "line": 50,
+      "column": 9,
+      "lineText": "  const states: HSMState[] = [",
+      "category": "variable"
+    },
+    {
+      "name": "step",
+      "kind": "const",
+      "file": "script-generator.ts",
+      "filepath": "src/tools/script-generator.ts",
+      "line": 28,
+      "column": 14,
+      "lineText": "  for (const step of plan.steps) {",
+      "category": "variable"
+    }
+  ],
+  "interpreterCalls": [
+    {
+      "name": "startServer().catch",
+      "kind": "callExpression",
+      "file": "index.ts",
+      "filepath": "src/index.ts",
+      "line": 3,
+      "column": 1,
+      "lineText": "startServer().catch((err) => {",
+      "category": "interpreterCall"
+    },
+    {
+      "name": "startServer",
+      "kind": "callExpression",
+      "file": "index.ts",
+      "filepath": "src/index.ts",
+      "line": 3,
+      "column": 1,
+      "lineText": "startServer().catch((err) => {",
+      "category": "interpreterCall"
+    },
+    {
+      "name": "console.error",
+      "kind": "callExpression",
+      "file": "index.ts",
+      "filepath": "src/index.ts",
+      "line": 4,
+      "column": 3,
+      "lineText": "  console.error('Failed to start server:', err);",
+      "category": "interpreterCall"
+    },
+    {
+      "name": "process.exit",
+      "kind": "callExpression",
+      "file": "index.ts",
+      "filepath": "src/index.ts",
+      "line": 5,
+      "column": 3,
+      "lineText": "  process.exit(1);",
+      "category": "interpreterCall"
+    },
+    {
+      "name": "new ToolRegistry",
+      "kind": "newExpression",
+      "file": "all-tools.ts",
+      "filepath": "src/registry/all-tools.ts",
+      "line": 10,
+      "column": 20,
+      "lineText": "  const registry = new ToolRegistry();",
+      "category": "interpreterCall"
+    },
+    {
+      "name": "registry.registerAll",
+      "kind": "callExpression",
+      "file": "all-tools.ts",
+      "filepath": "src/registry/all-tools.ts",
+      "line": 12,
+      "column": 3,
+      "lineText": "  registry.registerAll(filesystemTools);",
+      "category": "interpreterCall"
+    },
+    {
+      "name": "new Map",
+      "kind": "newExpression",
+      "file": "index.ts",
+      "filepath": "src/registry/index.ts",
+      "line": 4,
+      "column": 41,
+      "lineText": "  private tools: Map<string, ToolDef> = new Map();",
+      "category": "interpreterCall"
+    },
+    {
+      "name": "this.tools.set",
+      "kind": "callExpression",
+      "file": "index.ts",
+      "filepath": "src/registry/index.ts",
+      "line": 9,
+      "column": 5,
+      "lineText": "    this.tools.set(tool.name, tool);",
+      "category": "interpreterCall"
+    },
+    {
+      "name": "this.byCategory.has",
+      "kind": "callExpression",
+      "file": "index.ts",
+      "filepath": "src/registry/index.ts",
+      "line": 12,
+      "column": 10,
+      "lineText": "    if (!this.byCategory.has(tool.category)) {",
+      "category": "interpreterCall"
+    },
+    {
+      "name": "this.byCategory.set",
+      "kind": "callExpression",
+      "file": "index.ts",
+      "filepath": "src/registry/index.ts",
+      "line": 13,
+      "column": 7,
+      "lineText": "      this.byCategory.set(tool.category, new Set());",
+      "category": "interpreterCall"
+    },
+    {
+      "name": "new Set",
+      "kind": "newExpression",
+      "file": "index.ts",
+      "filepath": "src/registry/index.ts",
+      "line": 13,
+      "column": 42,
+      "lineText": "      this.byCategory.set(tool.category, new Set());",
+      "category": "interpreterCall"
+    },
+    {
+      "name": "this.byCategory.get(tool.category)!.add",
+      "kind": "callExpression",
+      "file": "index.ts",
+      "filepath": "src/registry/index.ts",
+      "line": 15,
+      "column": 5,
+      "lineText": "    this.byCategory.get(tool.category)!.add(tool.name);",
+      "category": "interpreterCall"
+    },
+    {
+      "name": "this.byCategory.get",
+      "kind": "callExpression",
+      "file": "index.ts",
+      "filepath": "src/registry/index.ts",
+      "line": 15,
+      "column": 5,
+      "lineText": "    this.byCategory.get(tool.category)!.add(tool.name);",
+      "category": "interpreterCall"
+    },
+    {
+      "name": "this.byTag.has",
+      "kind": "callExpression",
+      "file": "index.ts",
+      "filepath": "src/registry/index.ts",
+      "line": 19,
+      "column": 12,
+      "lineText": "      if (!this.byTag.has(tag)) {",
+      "category": "interpreterCall"
+    },
+    {
+      "name": "this.byTag.set",
+      "kind": "callExpression",
+      "file": "index.ts",
+      "filepath": "src/registry/index.ts",
+      "line": 20,
+      "column": 9,
+      "lineText": "        this.byTag.set(tag, new Set());",
+      "category": "interpreterCall"
+    },
+    {
+      "name": "this.byTag.get(tag)!.add",
+      "kind": "callExpression",
+      "file": "index.ts",
+      "filepath": "src/registry/index.ts",
+      "line": 22,
+      "column": 7,
+      "lineText": "      this.byTag.get(tag)!.add(tool.name);",
+      "category": "interpreterCall"
+    },
+    {
+      "name": "this.byTag.get",
+      "kind": "callExpression",
+      "file": "index.ts",
+      "filepath": "src/registry/index.ts",
+      "line": 22,
+      "column": 7,
+      "lineText": "      this.byTag.get(tag)!.add(tool.name);",
+      "category": "interpreterCall"
+    },
+    {
+      "name": "this.register",
+      "kind": "callExpression",
+      "file": "index.ts",
+      "filepath": "src/registry/index.ts",
+      "line": 28,
+      "column": 7,
+      "lineText": "      this.register(tool);",
+      "category": "interpreterCall"
+    },
+    {
+      "name": "this.tools.get",
+      "kind": "callExpression",
+      "file": "index.ts",
+      "filepath": "src/registry/index.ts",
+      "line": 33,
+      "column": 12,
+      "lineText": "    return this.tools.get(name);",
+      "category": "interpreterCall"
+    },
+    {
+      "name": "[...names].map(n => this.tools.get(n)!).filter",
+      "kind": "callExpression",
+      "file": "index.ts",
+      "filepath": "src/registry/index.ts",
+      "line": 42,
+      "column": 11,
+      "lineText": "        ? [...names].map(n => this.tools.get(n)!).filter(Boolean)",
+      "category": "interpreterCall"
+    },
+    {
+      "name": "[...names].map",
+      "kind": "callExpression",
+      "file": "index.ts",
+      "filepath": "src/registry/index.ts",
+      "line": 42,
+      "column": 11,
+      "lineText": "        ? [...names].map(n => this.tools.get(n)!).filter(Boolean)",
+      "category": "interpreterCall"
+    },
+    {
+      "name": "this.tools.values",
+      "kind": "callExpression",
+      "file": "index.ts",
+      "filepath": "src/registry/index.ts",
+      "line": 45,
+      "column": 24,
+      "lineText": "      candidates = [...this.tools.values()];",
+      "category": "interpreterCall"
+    },
+    {
+      "name": "candidates.filter",
+      "kind": "callExpression",
+      "file": "index.ts",
+      "filepath": "src/registry/index.ts",
+      "line": 49,
+      "column": 20,
+      "lineText": "      candidates = candidates.filter(t =>",
+      "category": "interpreterCall"
+    },
+    {
+      "name": "req.tags!.some",
+      "kind": "callExpression",
+      "file": "index.ts",
+      "filepath": "src/registry/index.ts",
+      "line": 50,
+      "column": 9,
+      "lineText": "        req.tags!.some(tag => t.tags.includes(tag))",
+      "category": "interpreterCall"
+    },
+    {
+      "name": "t.tags.includes",
+      "kind": "callExpression",
+      "file": "index.ts",
+      "filepath": "src/registry/index.ts",
+      "line": 50,
+      "column": 31,
+      "lineText": "        req.tags!.some(tag => t.tags.includes(tag))",
+      "category": "interpreterCall"
+    },
+    {
+      "name": "req.query.toLowerCase",
+      "kind": "callExpression",
+      "file": "index.ts",
+      "filepath": "src/registry/index.ts",
+      "line": 55,
+      "column": 17,
+      "lineText": "      const q = req.query.toLowerCase();",
+      "category": "interpreterCall"
+    },
+    {
+      "name": "t.name.toLowerCase().includes",
+      "kind": "callExpression",
+      "file": "index.ts",
+      "filepath": "src/registry/index.ts",
+      "line": 57,
+      "column": 9,
+      "lineText": "        t.name.toLowerCase().includes(q) ||",
+      "category": "interpreterCall"
+    },
+    {
+      "name": "t.name.toLowerCase",
+      "kind": "callExpression",
+      "file": "index.ts",
+      "filepath": "src/registry/index.ts",
+      "line": 57,
+      "column": 9,
+      "lineText": "        t.name.toLowerCase().includes(q) ||",
+      "category": "interpreterCall"
+    },
+    {
+      "name": "t.description.toLowerCase().includes",
+      "kind": "callExpression",
+      "file": "index.ts",
+      "filepath": "src/registry/index.ts",
+      "line": 58,
+      "column": 9,
+      "lineText": "        t.description.toLowerCase().includes(q) ||",
+      "category": "interpreterCall"
+    },
+    {
+      "name": "t.description.toLowerCase",
+      "kind": "callExpression",
+      "file": "index.ts",
+      "filepath": "src/registry/index.ts",
+      "line": 58,
+      "column": 9,
+      "lineText": "        t.description.toLowerCase().includes(q) ||",
+      "category": "interpreterCall"
+    },
+    {
+      "name": "t.tags.some",
+      "kind": "callExpression",
+      "file": "index.ts",
+      "filepath": "src/registry/index.ts",
+      "line": 59,
+      "column": 9,
+      "lineText": "        t.tags.some(tag => tag.toLowerCase().includes(q))",
+      "category": "interpreterCall"
+    },
+    {
+      "name": "tag.toLowerCase().includes",
+      "kind": "callExpression",
+      "file": "index.ts",
+      "filepath": "src/registry/index.ts",
+      "line": 59,
+      "column": 28,
+      "lineText": "        t.tags.some(tag => tag.toLowerCase().includes(q))",
+      "category": "interpreterCall"
+    },
+    {
+      "name": "tag.toLowerCase",
+      "kind": "callExpression",
+      "file": "index.ts",
+      "filepath": "src/registry/index.ts",
+      "line": 59,
+      "column": 28,
+      "lineText": "        t.tags.some(tag => tag.toLowerCase().includes(q))",
+      "category": "interpreterCall"
+    },
+    {
+      "name": "candidates.sort",
+      "kind": "callExpression",
+      "file": "index.ts",
+      "filepath": "src/registry/index.ts",
+      "line": 64,
+      "column": 5,
+      "lineText": "    candidates.sort((a, b) => {",
+      "category": "interpreterCall"
+    },
+    {
+      "name": "this.relevanceScore",
+      "kind": "callExpression",
+      "file": "index.ts",
+      "filepath": "src/registry/index.ts",
+      "line": 65,
+      "column": 22,
+      "lineText": "      const scoreA = this.relevanceScore(a, req.query);",
+      "category": "interpreterCall"
+    },
+    {
+      "name": "candidates.slice",
+      "kind": "callExpression",
+      "file": "index.ts",
+      "filepath": "src/registry/index.ts",
+      "line": 70,
+      "column": 12,
+      "lineText": "    return candidates.slice(0, req.limit ?? 10);",
+      "category": "interpreterCall"
+    },
+    {
+      "name": "this.byCategory.keys",
+      "kind": "callExpression",
+      "file": "index.ts",
+      "filepath": "src/registry/index.ts",
+      "line": 74,
+      "column": 16,
+      "lineText": "    return [...this.byCategory.keys()];",
+      "category": "interpreterCall"
+    },
+    {
+      "name": "this.byTag.keys",
+      "kind": "callExpression",
+      "file": "index.ts",
+      "filepath": "src/registry/index.ts",
+      "line": 78,
+      "column": 16,
+      "lineText": "    return [...this.byTag.keys()];",
+      "category": "interpreterCall"
+    },
+    {
+      "name": "query.toLowerCase",
+      "kind": "callExpression",
+      "file": "index.ts",
+      "filepath": "src/registry/index.ts",
+      "line": 91,
+      "column": 15,
+      "lineText": "    const q = query.toLowerCase();",
+      "category": "interpreterCall"
+    },
+    {
+      "name": "tool.name.toLowerCase",
+      "kind": "callExpression",
+      "file": "index.ts",
+      "filepath": "src/registry/index.ts",
+      "line": 94,
+      "column": 9,
+      "lineText": "    if (tool.name.toLowerCase() === q) score += 100;",
+      "category": "interpreterCall"
+    },
+    {
+      "name": "tool.name.toLowerCase().includes",
+      "kind": "callExpression",
+      "file": "index.ts",
+      "filepath": "src/registry/index.ts",
+      "line": 95,
+      "column": 14,
+      "lineText": "    else if (tool.name.toLowerCase().includes(q)) score += 50;",
+      "category": "interpreterCall"
+    },
+    {
+      "name": "tool.description.toLowerCase().includes",
+      "kind": "callExpression",
+      "file": "index.ts",
+      "filepath": "src/registry/index.ts",
+      "line": 97,
+      "column": 9,
+      "lineText": "    if (tool.description.toLowerCase().includes(q)) score += 25;",
+      "category": "interpreterCall"
+    },
+    {
+      "name": "tool.description.toLowerCase",
+      "kind": "callExpression",
+      "file": "index.ts",
+      "filepath": "src/registry/index.ts",
+      "line": 97,
+      "column": 9,
+      "lineText": "    if (tool.description.toLowerCase().includes(q)) score += 25;",
+      "category": "interpreterCall"
+    },
+    {
+      "name": "createRegistry",
+      "kind": "callExpression",
+      "file": "server.ts",
+      "filepath": "src/server.ts",
+      "line": 10,
+      "column": 18,
+      "lineText": "const registry = createRegistry();",
+      "category": "interpreterCall"
+    },
+    {
+      "name": "new Server",
+      "kind": "newExpression",
+      "file": "server.ts",
+      "filepath": "src/server.ts",
+      "line": 12,
+      "column": 16,
+      "lineText": "const server = new Server(",
+      "category": "interpreterCall"
+    },
+    {
+      "name": "server.setRequestHandler",
+      "kind": "callExpression",
+      "file": "server.ts",
+      "filepath": "src/server.ts",
+      "line": 19,
+      "column": 1,
+      "lineText": "server.setRequestHandler(ListToolsRequestSchema, async () => ({",
+      "category": "interpreterCall"
+    },
+    {
+      "name": "registry.size",
+      "kind": "callExpression",
+      "file": "server.ts",
+      "filepath": "src/server.ts",
+      "line": 23,
+      "column": 49,
+      "lineText": "      description: `Search the tool registry (${registry.size()} tools). Find tools by name, category, or tags.`,",
+      "category": "interpreterCall"
+    },
+    {
+      "name": "registry.lookup",
+      "kind": "callExpression",
+      "file": "server.ts",
+      "filepath": "src/server.ts",
+      "line": 102,
+      "column": 25,
+      "lineText": "        const results = registry.lookup(req);",
+      "category": "interpreterCall"
+    },
+    {
+      "name": "JSON.stringify",
+      "kind": "callExpression",
+      "file": "server.ts",
+      "filepath": "src/server.ts",
+      "line": 104,
+      "column": 43,
+      "lineText": "          content: [{ type: 'text', text: JSON.stringify(results, null, 2) }],",
+      "category": "interpreterCall"
+    },
+    {
+      "name": "buildPlan",
+      "kind": "callExpression",
+      "file": "server.ts",
+      "filepath": "src/server.ts",
+      "line": 110,
+      "column": 22,
+      "lineText": "        const plan = buildPlan(req, registry);",
+      "category": "interpreterCall"
+    },
+    {
+      "name": "renderSM",
+      "kind": "callExpression",
+      "file": "server.ts",
+      "filepath": "src/server.ts",
+      "line": 121,
+      "column": 22,
+      "lineText": "            output = renderSM(req.plan.hsm);",
+      "category": "interpreterCall"
+    },
+    {
+      "name": "renderHSM",
+      "kind": "callExpression",
+      "file": "server.ts",
+      "filepath": "src/server.ts",
+      "line": 124,
+      "column": 22,
+      "lineText": "            output = renderHSM(req.plan.hsm);",
+      "category": "interpreterCall"
+    },
+    {
+      "name": "renderTable",
+      "kind": "callExpression",
+      "file": "server.ts",
+      "filepath": "src/server.ts",
+      "line": 130,
+      "column": 22,
+      "lineText": "            output = renderTable(req.plan.hsm);",
+      "category": "interpreterCall"
+    },
+    {
+      "name": "new Error",
+      "kind": "newExpression",
+      "file": "server.ts",
+      "filepath": "src/server.ts",
+      "line": 133,
+      "column": 19,
+      "lineText": "            throw new Error(`Unknown format: ${req.format}`);",
+      "category": "interpreterCall"
+    },
+    {
+      "name": "generateScript",
+      "kind": "callExpression",
+      "file": "server.ts",
+      "filepath": "src/server.ts",
+      "line": 140,
+      "column": 24,
+      "lineText": "        const script = generateScript(req);",
+      "category": "interpreterCall"
+    },
+    {
+      "name": "registry.categories",
+      "kind": "callExpression",
+      "file": "server.ts",
+      "filepath": "src/server.ts",
+      "line": 162,
+      "column": 22,
+      "lineText": "        const cats = registry.categories();",
+      "category": "interpreterCall"
+    },
+    {
+      "name": "cats.map",
+      "kind": "callExpression",
+      "file": "server.ts",
+      "filepath": "src/server.ts",
+      "line": 163,
+      "column": 25,
+      "lineText": "        const summary = cats.map(cat => {",
+      "category": "interpreterCall"
+    },
+    {
+      "name": "String",
+      "kind": "callExpression",
+      "file": "server.ts",
+      "filepath": "src/server.ts",
+      "line": 177,
+      "column": 58,
+      "lineText": "    const message = err instanceof Error ? err.message : String(err);",
+      "category": "interpreterCall"
+    },
+    {
+      "name": "rows.push",
+      "kind": "callExpression",
+      "file": "server.ts",
+      "filepath": "src/server.ts",
+      "line": 196,
+      "column": 7,
+      "lineText": "      rows.push({",
+      "category": "interpreterCall"
+    },
+    {
+      "name": "walk",
+      "kind": "callExpression",
+      "file": "server.ts",
+      "filepath": "src/server.ts",
+      "line": 222,
+      "column": 9,
+      "lineText": "        walk(child, qualified);",
+      "category": "interpreterCall"
+    },
+    {
+      "name": "headers.map",
+      "kind": "callExpression",
+      "file": "server.ts",
+      "filepath": "src/server.ts",
+      "line": 234,
+      "column": 18,
+      "lineText": "  const widths = headers.map((h, i) => {",
+      "category": "interpreterCall"
+    },
+    {
+      "name": "Math.max",
+      "kind": "callExpression",
+      "file": "server.ts",
+      "filepath": "src/server.ts",
+      "line": 236,
+      "column": 12,
+      "lineText": "    return Math.max(h.length, ...rows.map(r => r[key].length));",
+      "category": "interpreterCall"
+    },
+    {
+      "name": "rows.map",
+      "kind": "callExpression",
+      "file": "server.ts",
+      "filepath": "src/server.ts",
+      "line": 236,
+      "column": 34,
+      "lineText": "    return Math.max(h.length, ...rows.map(r => r[key].length));",
+      "category": "interpreterCall"
+    },
+    {
+      "name": "widths.map(w => '-'.repeat(w + 2)).join",
+      "kind": "callExpression",
+      "file": "server.ts",
+      "filepath": "src/server.ts",
+      "line": 239,
+      "column": 21,
+      "lineText": "  const sep = '+' + widths.map(w => '-'.repeat(w + 2)).join('+') + '+';",
+      "category": "interpreterCall"
+    },
+    {
+      "name": "widths.map",
+      "kind": "callExpression",
+      "file": "server.ts",
+      "filepath": "src/server.ts",
+      "line": 239,
+      "column": 21,
+      "lineText": "  const sep = '+' + widths.map(w => '-'.repeat(w + 2)).join('+') + '+';",
+      "category": "interpreterCall"
+    },
+    {
+      "name": "'-'.repeat",
+      "kind": "callExpression",
+      "file": "server.ts",
+      "filepath": "src/server.ts",
+      "line": 239,
+      "column": 37,
+      "lineText": "  const sep = '+' + widths.map(w => '-'.repeat(w + 2)).join('+') + '+';",
+      "category": "interpreterCall"
+    },
+    {
+      "name": "vals.map((v, i) => v.padEnd(widths[i])).join",
+      "kind": "callExpression",
+      "file": "server.ts",
+      "filepath": "src/server.ts",
+      "line": 240,
+      "column": 42,
+      "lineText": "  const fmt = (vals: string[]) => '| ' + vals.map((v, i) => v.padEnd(widths[i])).join(' | ') + ' |';",
+      "category": "interpreterCall"
+    },
+    {
+      "name": "vals.map",
+      "kind": "callExpression",
+      "file": "server.ts",
+      "filepath": "src/server.ts",
+      "line": 240,
+      "column": 42,
+      "lineText": "  const fmt = (vals: string[]) => '| ' + vals.map((v, i) => v.padEnd(widths[i])).join(' | ') + ' |';",
+      "category": "interpreterCall"
+    },
+    {
+      "name": "v.padEnd",
+      "kind": "callExpression",
+      "file": "server.ts",
+      "filepath": "src/server.ts",
+      "line": 240,
+      "column": 61,
+      "lineText": "  const fmt = (vals: string[]) => '| ' + vals.map((v, i) => v.padEnd(widths[i])).join(' | ') + ' |';",
+      "category": "interpreterCall"
+    },
+    {
+      "name": "fmt",
+      "kind": "callExpression",
+      "file": "server.ts",
+      "filepath": "src/server.ts",
+      "line": 247,
+      "column": 5,
+      "lineText": "    fmt(headers),",
+      "category": "interpreterCall"
+    },
+    {
+      "name": "keys.map",
+      "kind": "callExpression",
+      "file": "server.ts",
+      "filepath": "src/server.ts",
+      "line": 249,
+      "column": 26,
+      "lineText": "    ...rows.map(r => fmt(keys.map(k => r[k]))),",
+      "category": "interpreterCall"
+    },
+    {
+      "name": "lines.join",
+      "kind": "callExpression",
+      "file": "server.ts",
+      "filepath": "src/server.ts",
+      "line": 253,
+      "column": 10,
+      "lineText": "  return lines.join('\\n');",
+      "category": "interpreterCall"
+    },
+    {
+      "name": "new StdioServerTransport",
+      "kind": "newExpression",
+      "file": "server.ts",
+      "filepath": "src/server.ts",
+      "line": 259,
+      "column": 21,
+      "lineText": "  const transport = new StdioServerTransport();",
+      "category": "interpreterCall"
+    },
+    {
+      "name": "server.connect",
+      "kind": "callExpression",
+      "file": "server.ts",
+      "filepath": "src/server.ts",
+      "line": 260,
+      "column": 9,
+      "lineText": "  await server.connect(transport);",
+      "category": "interpreterCall"
+    },
+    {
+      "name": "states.find",
+      "kind": "callExpression",
+      "file": "hsm-runtime.ts",
+      "filepath": "src/tools/hsm-runtime.ts",
+      "line": 5,
+      "column": 18,
+      "lineText": "  const target = states.find(s => s.name === path[0]);",
+      "category": "interpreterCall"
+    },
+    {
+      "name": "findState",
+      "kind": "callExpression",
+      "file": "hsm-runtime.ts",
+      "filepath": "src/tools/hsm-runtime.ts",
+      "line": 7,
+      "column": 10,
+      "lineText": "  return findState(target.children ?? [], path.slice(1));",
+      "category": "interpreterCall"
+    },
+    {
+      "name": "path.slice",
+      "kind": "callExpression",
+      "file": "hsm-runtime.ts",
+      "filepath": "src/tools/hsm-runtime.ts",
+      "line": 7,
+      "column": 43,
+      "lineText": "  return findState(target.children ?? [], path.slice(1));",
+      "category": "interpreterCall"
+    },
+    {
+      "name": "state.children.find",
+      "kind": "callExpression",
+      "file": "hsm-runtime.ts",
+      "filepath": "src/tools/hsm-runtime.ts",
+      "line": 13,
+      "column": 19,
+      "lineText": "    const child = state.children.find(s => s.name === state.initial);",
+      "category": "interpreterCall"
+    },
+    {
+      "name": "path.push",
+      "kind": "callExpression",
+      "file": "hsm-runtime.ts",
+      "filepath": "src/tools/hsm-runtime.ts",
+      "line": 14,
+      "column": 16,
+      "lineText": "    if (child) path.push(...resolveInitial(child));",
+      "category": "interpreterCall"
+    },
+    {
+      "name": "resolveInitial",
+      "kind": "callExpression",
+      "file": "hsm-runtime.ts",
+      "filepath": "src/tools/hsm-runtime.ts",
+      "line": 14,
+      "column": 29,
+      "lineText": "    if (child) path.push(...resolveInitial(child));",
+      "category": "interpreterCall"
+    },
+    {
+      "name": "qualified.split",
+      "kind": "callExpression",
+      "file": "hsm-runtime.ts",
+      "filepath": "src/tools/hsm-runtime.ts",
+      "line": 20,
+      "column": 17,
+      "lineText": "  const parts = qualified.split('.');",
+      "category": "interpreterCall"
+    },
+    {
+      "name": "result.push",
+      "kind": "callExpression",
+      "file": "hsm-runtime.ts",
+      "filepath": "src/tools/hsm-runtime.ts",
+      "line": 24,
+      "column": 5,
+      "lineText": "    result.push(part);",
+      "category": "interpreterCall"
+    },
+    {
+      "name": "current.find",
+      "kind": "callExpression",
+      "file": "hsm-runtime.ts",
+      "filepath": "src/tools/hsm-runtime.ts",
+      "line": 25,
+      "column": 19,
+      "lineText": "    const found = current.find(s => s.name === part);",
+      "category": "interpreterCall"
+    },
+    {
+      "name": "context.currentState.split",
+      "kind": "callExpression",
+      "file": "hsm-runtime.ts",
+      "filepath": "src/tools/hsm-runtime.ts",
+      "line": 43,
+      "column": 19,
+      "lineText": "    const parts = context.currentState.split('.');",
+      "category": "interpreterCall"
+    },
+    {
+      "name": "parts.slice",
+      "kind": "callExpression",
+      "file": "hsm-runtime.ts",
+      "filepath": "src/tools/hsm-runtime.ts",
+      "line": 46,
+      "column": 25,
+      "lineText": "      const statePath = parts.slice(0, depth);",
+      "category": "interpreterCall"
+    },
+    {
+      "name": "state.transitions.find",
+      "kind": "callExpression",
+      "file": "hsm-runtime.ts",
+      "filepath": "src/tools/hsm-runtime.ts",
+      "line": 50,
+      "column": 26,
+      "lineText": "      const transition = state.transitions.find(t => t.event === event.type);",
+      "category": "interpreterCall"
+    },
+    {
+      "name": "target.startsWith",
+      "kind": "callExpression",
+      "file": "hsm-runtime.ts",
+      "filepath": "src/tools/hsm-runtime.ts",
+      "line": 56,
+      "column": 11,
+      "lineText": "      if (target.startsWith('^')) {",
+      "category": "interpreterCall"
+    },
+    {
+      "name": "target.slice",
+      "kind": "callExpression",
+      "file": "hsm-runtime.ts",
+      "filepath": "src/tools/hsm-runtime.ts",
+      "line": 57,
+      "column": 21,
+      "lineText": "        const ref = target.slice(1);",
+      "category": "interpreterCall"
+    },
+    {
+      "name": "statePath.slice(0, -1).join",
+      "kind": "callExpression",
+      "file": "hsm-runtime.ts",
+      "filepath": "src/tools/hsm-runtime.ts",
+      "line": 63,
+      "column": 28,
+      "lineText": "        const parentPath = statePath.slice(0, -1).join('.');",
+      "category": "interpreterCall"
+    },
+    {
+      "name": "statePath.slice",
+      "kind": "callExpression",
+      "file": "hsm-runtime.ts",
+      "filepath": "src/tools/hsm-runtime.ts",
+      "line": 63,
+      "column": 28,
+      "lineText": "        const parentPath = statePath.slice(0, -1).join('.');",
+      "category": "interpreterCall"
+    },
+    {
+      "name": "context.history.get",
+      "kind": "callExpression",
+      "file": "hsm-runtime.ts",
+      "filepath": "src/tools/hsm-runtime.ts",
+      "line": 64,
+      "column": 27,
+      "lineText": "        const lastChild = context.history.get(parentPath);",
+      "category": "interpreterCall"
+    },
+    {
+      "name": "parts.slice(0, -1).join",
+      "kind": "callExpression",
+      "file": "hsm-runtime.ts",
+      "filepath": "src/tools/hsm-runtime.ts",
+      "line": 73,
+      "column": 26,
+      "lineText": "      const parentPath = parts.slice(0, -1).join('.');",
+      "category": "interpreterCall"
+    },
+    {
+      "name": "context.history.set",
+      "kind": "callExpression",
+      "file": "hsm-runtime.ts",
+      "filepath": "src/tools/hsm-runtime.ts",
+      "line": 75,
+      "column": 9,
+      "lineText": "        context.history.set(parentPath, context.currentState);",
+      "category": "interpreterCall"
+    },
+    {
+      "name": "target.includes",
+      "kind": "callExpression",
+      "file": "hsm-runtime.ts",
+      "filepath": "src/tools/hsm-runtime.ts",
+      "line": 79,
+      "column": 12,
+      "lineText": "      if (!target.includes('.')) {",
+      "category": "interpreterCall"
+    },
+    {
+      "name": "[...parentParts, target].join",
+      "kind": "callExpression",
+      "file": "hsm-runtime.ts",
+      "filepath": "src/tools/hsm-runtime.ts",
+      "line": 83,
+      "column": 20,
+      "lineText": "          target = [...parentParts, target].join('.');",
+      "category": "interpreterCall"
+    },
+    {
+      "name": "target.split",
+      "kind": "callExpression",
+      "file": "hsm-runtime.ts",
+      "filepath": "src/tools/hsm-runtime.ts",
+      "line": 88,
+      "column": 27,
+      "lineText": "      const targetParts = target.split('.');",
+      "category": "interpreterCall"
+    },
+    {
+      "name": "[...targetParts.slice(0, -1), ...initialPath].join",
+      "kind": "callExpression",
+      "file": "hsm-runtime.ts",
+      "filepath": "src/tools/hsm-runtime.ts",
+      "line": 92,
+      "column": 18,
+      "lineText": "        target = [...targetParts.slice(0, -1), ...initialPath].join('.');",
+      "category": "interpreterCall"
+    },
+    {
+      "name": "targetParts.slice",
+      "kind": "callExpression",
+      "file": "hsm-runtime.ts",
+      "filepath": "src/tools/hsm-runtime.ts",
+      "line": 92,
+      "column": 22,
+      "lineText": "        target = [...targetParts.slice(0, -1), ...initialPath].join('.');",
+      "category": "interpreterCall"
+    },
+    {
+      "name": "context.currentState.startsWith",
+      "kind": "callExpression",
+      "file": "hsm-runtime.ts",
+      "filepath": "src/tools/hsm-runtime.ts",
+      "line": 104,
+      "column": 12,
+      "lineText": "    return context.currentState.startsWith(pattern) || context.currentState === pattern;",
+      "category": "interpreterCall"
+    },
+    {
+      "name": "getActiveHierarchy",
+      "kind": "callExpression",
+      "file": "hsm-runtime.ts",
+      "filepath": "src/tools/hsm-runtime.ts",
+      "line": 108,
+      "column": 12,
+      "lineText": "    return getActiveHierarchy(hsm.states, context.currentState);",
+      "category": "interpreterCall"
+    },
+    {
+      "name": "'  '.repeat",
+      "kind": "callExpression",
+      "file": "hsm-runtime.ts",
+      "filepath": "src/tools/hsm-runtime.ts",
+      "line": 118,
+      "column": 30,
+      "lineText": "  const pad = (n: number) => '  '.repeat(n);",
+      "category": "interpreterCall"
+    },
+    {
+      "name": "lines.push",
+      "kind": "callExpression",
+      "file": "hsm-runtime.ts",
+      "filepath": "src/tools/hsm-runtime.ts",
+      "line": 120,
+      "column": 3,
+      "lineText": "  lines.push(`${pad(indent)}@hsm ${hsm.name}`);",
+      "category": "interpreterCall"
+    },
+    {
+      "name": "pad",
+      "kind": "callExpression",
+      "file": "hsm-runtime.ts",
+      "filepath": "src/tools/hsm-runtime.ts",
+      "line": 120,
+      "column": 17,
+      "lineText": "  lines.push(`${pad(indent)}@hsm ${hsm.name}`);",
+      "category": "interpreterCall"
+    },
+    {
+      "name": "renderState",
+      "kind": "callExpression",
+      "file": "hsm-runtime.ts",
+      "filepath": "src/tools/hsm-runtime.ts",
+      "line": 146,
+      "column": 9,
+      "lineText": "        renderState(child, depth + 1);",
+      "category": "interpreterCall"
+    },
+    {
+      "name": "registry.get",
+      "kind": "callExpression",
+      "file": "plan-builder.ts",
+      "filepath": "src/tools/plan-builder.ts",
+      "line": 8,
+      "column": 18,
+      "lineText": "    const tool = registry.get(name);",
+      "category": "interpreterCall"
+    },
+    {
+      "name": "resolvedTools.push",
+      "kind": "callExpression",
+      "file": "plan-builder.ts",
+      "filepath": "src/tools/plan-builder.ts",
+      "line": 9,
+      "column": 15,
+      "lineText": "    if (tool) resolvedTools.push(tool);",
+      "category": "interpreterCall"
+    },
+    {
+      "name": "resolvedTools.map",
+      "kind": "callExpression",
+      "file": "plan-builder.ts",
+      "filepath": "src/tools/plan-builder.ts",
+      "line": 12,
+      "column": 29,
+      "lineText": "  const steps: PlanStep[] = resolvedTools.map((tool, i) => ({",
+      "category": "interpreterCall"
+    },
+    {
+      "name": "generateHSM",
+      "kind": "callExpression",
+      "file": "plan-builder.ts",
+      "filepath": "src/tools/plan-builder.ts",
+      "line": 26,
+      "column": 15,
+      "lineText": "  const hsm = generateHSM(steps, req.goal);",
+      "category": "interpreterCall"
+    },
+    {
+      "name": "randomUUID",
+      "kind": "callExpression",
+      "file": "plan-builder.ts",
+      "filepath": "src/tools/plan-builder.ts",
+      "line": 29,
+      "column": 9,
+      "lineText": "    id: randomUUID(),",
+      "category": "interpreterCall"
+    },
+    {
+      "name": "new Date().toISOString",
+      "kind": "callExpression",
+      "file": "plan-builder.ts",
+      "filepath": "src/tools/plan-builder.ts",
+      "line": 34,
+      "column": 16,
+      "lineText": "    createdAt: new Date().toISOString(),",
+      "category": "interpreterCall"
+    },
+    {
+      "name": "new Date",
+      "kind": "newExpression",
+      "file": "plan-builder.ts",
+      "filepath": "src/tools/plan-builder.ts",
+      "line": 34,
+      "column": 16,
+      "lineText": "    createdAt: new Date().toISOString(),",
+      "category": "interpreterCall"
+    },
+    {
+      "name": "steps.map",
+      "kind": "callExpression",
+      "file": "plan-builder.ts",
+      "filepath": "src/tools/plan-builder.ts",
+      "line": 40,
+      "column": 37,
+      "lineText": "  const toolRunStates: HSMState[] = steps.map((step, i) => ({",
+      "category": "interpreterCall"
+    },
+    {
+      "name": "name.replace(/\\s+/g, '_').toLowerCase",
+      "kind": "callExpression",
+      "file": "plan-builder.ts",
+      "filepath": "src/tools/plan-builder.ts",
+      "line": 101,
+      "column": 19,
+      "lineText": "    name: `plan_${name.replace(/\\s+/g, '_').toLowerCase()}`,",
+      "category": "interpreterCall"
+    },
+    {
+      "name": "name.replace",
+      "kind": "callExpression",
+      "file": "plan-builder.ts",
+      "filepath": "src/tools/plan-builder.ts",
+      "line": 101,
+      "column": 19,
+      "lineText": "    name: `plan_${name.replace(/\\s+/g, '_').toLowerCase()}`,",
+      "category": "interpreterCall"
+    },
+    {
+      "name": "generateNode",
+      "kind": "callExpression",
+      "file": "script-generator.ts",
+      "filepath": "src/tools/script-generator.ts",
+      "line": 5,
+      "column": 25,
+      "lineText": "    case 'node': return generateNode(req.plan);",
+      "category": "interpreterCall"
+    },
+    {
+      "name": "generatePython",
+      "kind": "callExpression",
+      "file": "script-generator.ts",
+      "filepath": "src/tools/script-generator.ts",
+      "line": 6,
+      "column": 27,
+      "lineText": "    case 'python': return generatePython(req.plan);",
+      "category": "interpreterCall"
+    },
+    {
+      "name": "generateBash",
+      "kind": "callExpression",
+      "file": "script-generator.ts",
+      "filepath": "src/tools/script-generator.ts",
+      "line": 7,
+      "column": 25,
+      "lineText": "    case 'bash': return generateBash(req.plan);",
+      "category": "interpreterCall"
+    },
+    {
+      "name": "step.id.replace",
+      "kind": "callExpression",
+      "file": "script-generator.ts",
+      "filepath": "src/tools/script-generator.ts",
+      "line": 32,
+      "column": 36,
+      "lineText": "    lines.push(`    const result_${step.id.replace('-', '_')} = await tools.${step.tool}(${JSON.stringify(step.args)});`);",
+      "category": "interpreterCall"
+    }
+  ],
+  "assessment": {
+    "criticalMissingImplementation": [
+      {
+        "area": "step execution",
+        "severity": "critical",
+        "summary": "Plan steps are never actually executed.",
+        "evidence": [
+          "src/server.ts:144",
+          "src/server.ts:154"
+        ]
+      },
+      {
+        "area": "tool runtime",
+        "severity": "critical",
+        "summary": "The registry stores tool metadata only; there are no executable tool implementations.",
+        "evidence": [
+          "src/types.ts:70",
+          "src/registry/index.ts:3"
+        ]
+      },
+      {
+        "area": "generated scripts",
+        "severity": "critical",
+        "summary": "Generated Node and Python scripts call an undefined tools object, and the Bash script is placeholder-only.",
+        "evidence": [
+          "src/tools/script-generator.ts:32",
+          "src/tools/script-generator.ts:66",
+          "src/tools/script-generator.ts:91"
+        ]
+      },
+      {
+        "area": "hsm actions and guards",
+        "severity": "critical",
+        "summary": "Transition guards and actions are modeled as strings but are never evaluated or executed.",
+        "evidence": [
+          "src/types.ts:6",
+          "src/tools/hsm-runtime.ts:50",
+          "src/tools/plan-builder.ts:73"
+        ]
+      },
+      {
+        "area": "plan persistence",
+        "severity": "critical",
+        "summary": "Plans and runtime state are in-memory only, so work cannot be resumed across sessions.",
+        "evidence": [
+          "src/tools/hsm-runtime.ts:35",
+          "src/server.ts:145"
+        ]
+      }
+    ],
+    "neededFeaturesForFullFunctionality": [
+      "Bind registry tool definitions to executable implementations with permission gating.",
+      "Implement real step execution, retry handling, result passing, and error recovery.",
+      "Evaluate HSM guards/actions or replace string placeholders with typed callbacks.",
+      "Persist plans, runtime history, and step results so executions can resume safely.",
+      "Make generated Node/Python/Bash scripts self-contained and runnable.",
+      "Add an SM/HSM parser to complement the existing renderers and declared parser types."
+    ],
+    "ciCd": {
+      "workflowsPresent": false,
+      "workflowPaths": [],
+      "gaps": [
+        "No GitHub Actions or other checked-in CI/CD workflows were found under .github/workflows.",
+        "No automated build, typecheck, manifest generation, or release validation pipeline is configured in the repository."
+      ]
+    },
+    "testCoverage": {
+      "testsPresent": false,
+      "testFilePatternsFound": [],
+      "configuredTestScript": false,
+      "gaps": [
+        "No test files matching common patterns were found in the repository.",
+        "package.json does not define a test script.",
+        "Core modules such as ToolRegistry, plan building, HSM runtime transitions, and script generation have no automated coverage."
+      ]
+    }
+  }
+}
