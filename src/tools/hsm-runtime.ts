@@ -159,35 +159,76 @@ export function renderSM(hsm: HSMDefinition, indent: number = 0): string {
   return lines.join('\n');
 }
 
-// ── Mermaid Renderer ────────────────────────────────────────────────
+// ── HSM Verbose Format Renderer ─────────────────────────────────────
+// .hsm format: explicit, no shorthand, full transition tables
 
-export function renderMermaid(hsm: HSMDefinition): string {
-  const lines: string[] = ['stateDiagram-v2'];
+export function renderHSM(hsm: HSMDefinition): string {
+  const lines: string[] = [];
 
-  function renderState(state: HSMState, prefix: string): void {
-    const id = prefix ? `${prefix}_${state.name}` : state.name;
+  lines.push(`machine "${hsm.name}" {`);
+  lines.push(`  version: "${hsm.version}";`);
+  lines.push(`  target: ${hsm.target};`);
+  lines.push(`  initial_state: "${hsm.initial}";`);
+  lines.push('');
 
-    if (state.children && state.children.length > 0) {
-      lines.push(`  state ${id} {`);
-      if (state.initial) {
-        lines.push(`    [*] --> ${id}_${state.initial}`);
-      }
-      for (const child of state.children) {
-        renderState(child, id);
-      }
-      lines.push('  }');
+  function renderState(state: HSMState, depth: number): void {
+    const pad = '  '.repeat(depth);
+
+    const composite = state.children && state.children.length > 0;
+    lines.push(`${pad}state "${state.name}" {`);
+    lines.push(`${pad}  type: ${composite ? 'composite' : 'atomic'};`);
+
+    if (state.initial) {
+      lines.push(`${pad}  initial: "${state.initial}";`);
+    }
+    if (state.history) {
+      lines.push(`${pad}  history: ${state.history};`);
     }
 
-    for (const t of state.transitions) {
-      const targetId = t.target.replace(/\./g, '_').replace(/\^/g, '');
-      lines.push(`  ${id} --> ${targetId} : ${t.event}`);
+    // Entry/exit as explicit blocks
+    if (state.enter) {
+      lines.push(`${pad}  on_enter {`);
+      lines.push(`${pad}    action: ${state.enter};`);
+      lines.push(`${pad}  }`);
     }
+    if (state.exit) {
+      lines.push(`${pad}  on_exit {`);
+      lines.push(`${pad}    action: ${state.exit};`);
+      lines.push(`${pad}  }`);
+    }
+
+    // Transition table
+    if (state.transitions.length > 0) {
+      lines.push('');
+      lines.push(`${pad}  transitions {`);
+      for (const t of state.transitions) {
+        lines.push(`${pad}    "${t.event}" {`);
+        lines.push(`${pad}      target: "${t.target}";`);
+        if (t.guard) lines.push(`${pad}      guard: ${t.guard};`);
+        if (t.action) lines.push(`${pad}      action: ${t.action};`);
+        lines.push(`${pad}    }`);
+      }
+      lines.push(`${pad}  }`);
+    }
+
+    // Children
+    if (composite) {
+      lines.push('');
+      lines.push(`${pad}  substates {`);
+      for (const child of state.children!) {
+        renderState(child, depth + 2);
+      }
+      lines.push(`${pad}  }`);
+    }
+
+    lines.push(`${pad}}`);
+    lines.push('');
   }
 
-  lines.push(`  [*] --> ${hsm.initial.replace(/\./g, '_')}`);
   for (const state of hsm.states) {
-    renderState(state, '');
+    renderState(state, 1);
   }
 
+  lines.push('}');
   return lines.join('\n');
 }

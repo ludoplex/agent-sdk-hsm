@@ -3,7 +3,7 @@ import { StdioServerTransport } from '@modelcontextprotocol/sdk/server/stdio.js'
 import { ListToolsRequestSchema, CallToolRequestSchema } from '@modelcontextprotocol/sdk/types.js';
 import { createRegistry } from './registry/all-tools.js';
 import { buildPlan } from './tools/plan-builder.js';
-import { createHSMRuntime, renderSM, renderMermaid } from './tools/hsm-runtime.js';
+import { createHSMRuntime, renderSM, renderHSM } from './tools/hsm-runtime.js';
 import { generateScript } from './tools/script-generator.js';
 import type { LookupRequest, BuildPlanRequest, RenderStateMachineRequest, GenerateScriptRequest, ExecuteStepRequest } from './types.js';
 
@@ -47,12 +47,12 @@ server.setRequestHandler(ListToolsRequestSchema, async () => ({
     },
     {
       name: 'render_statemachine',
-      description: 'Render a plan HSM in .sm, JSON, Mermaid, or DOT format.',
+      description: 'Render a plan HSM in .sm (compact), .hsm (verbose), JSON, or DOT format.',
       inputSchema: {
         type: 'object' as const,
         properties: {
           plan: { type: 'object', description: 'Execution plan with HSM' },
-          format: { type: 'string', enum: ['sm', 'json', 'mermaid', 'dot'], description: 'Output format' },
+          format: { type: 'string', enum: ['sm', 'hsm', 'json', 'dot'], description: 'Output format' },
         },
         required: ['plan', 'format'],
       },
@@ -120,8 +120,8 @@ server.setRequestHandler(CallToolRequestSchema, async (request) => {
           case 'sm':
             output = renderSM(req.plan.hsm);
             break;
-          case 'mermaid':
-            output = renderMermaid(req.plan.hsm);
+          case 'hsm':
+            output = renderHSM(req.plan.hsm);
             break;
           case 'json':
             output = JSON.stringify(req.plan.hsm, null, 2);

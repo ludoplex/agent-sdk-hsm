@@ -193,7 +193,7 @@ export interface BuildPlanRequest {
 
 export interface RenderStateMachineRequest {
   plan: ExecutionPlan;
-  format: 'sm' | 'json' | 'mermaid' | 'dot';
+  format: 'sm' | 'hsm' | 'json' | 'dot';
 }
 
 export interface GenerateScriptRequest {
