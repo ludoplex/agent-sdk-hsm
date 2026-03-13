@@ -8,6 +8,8 @@ const scriptDir = path.dirname(scriptPath);
 const repoRoot = path.resolve(scriptDir, '..');
 const sourceRoot = path.join(repoRoot, 'src');
 const defaultManifestPath = path.join(repoRoot, 'analysis', 'source-manifest.json');
+const manifestRoot = '.';
+const manifestSourceRoot = 'src';
 
 const CRITICAL_MISSING_IMPLEMENTATION = [
   {
@@ -117,24 +119,24 @@ function createLineReader(sourceText) {
 function getLocation(sourceFile, node, readLine) {
   const position = sourceFile.getLineAndCharacterOfPosition(node.getStart(sourceFile, false));
   const line = position.line + 1;
+  const filepath = path.relative(repoRoot, sourceFile.fileName).replaceAll(path.sep, '/');
   return {
     file: path.basename(sourceFile.fileName),
-    filepath: sourceFile.fileName,
-    relativePath: path.relative(repoRoot, sourceFile.fileName).replaceAll(path.sep, '/'),
+    filepath,
     line,
     column: position.character + 1,
     lineText: readLine(line),
   };
 }
 
-function appendUniqueBindingNames(names, bindingName) {
+function appendBindingNames(names, bindingName) {
   if (ts.isIdentifier(bindingName)) {
     names.push(bindingName.text);
     return;
   }
 
   for (const element of bindingName.elements) {
-    appendUniqueBindingNames(names, element.name);
+    appendBindingNames(names, element.name);
   }
 }
 
@@ -155,13 +157,14 @@ function getVariableKind(node) {
 }
 
 function getFunctionName(node, sourceFile) {
+  const relativePath = path.relative(repoRoot, sourceFile.fileName).replaceAll(path.sep, '/');
   if ('name' in node && node.name && ts.isIdentifier(node.name)) {
     return node.name.text;
   }
 
   const parent = node.parent;
   if (!parent) {
-    return `${ts.SyntaxKind[node.kind]}@${sourceFile.fileName}:${node.pos}`;
+    return `${ts.SyntaxKind[node.kind]}@${relativePath}:${node.pos}`;
   }
 
   if (ts.isVariableDeclaration(parent) && ts.isIdentifier(parent.name)) {
@@ -180,7 +183,15 @@ function getFunctionName(node, sourceFile) {
     return `${parent.expression.getText(sourceFile)}::<callback>`;
   }
 
-  return `${ts.SyntaxKind[node.kind]}@${sourceFile.fileName}:${node.pos}`;
+  return `${ts.SyntaxKind[node.kind]}@${relativePath}:${node.pos}`;
+}
+
+function isFunctionLikeNode(node) {
+  return ts.isFunctionDeclaration(node)
+    || ts.isMethodDeclaration(node)
+    || ts.isFunctionExpression(node)
+    || ts.isArrowFunction(node)
+    || ts.isConstructorDeclaration(node);
 }
 
 function createEntry(category, name, kind, sourceFile, node, readLine) {
@@ -204,7 +215,7 @@ function collectManifest() {
     const readLine = createLineReader(sourceText);
 
     function visit(node) {
-      if (ts.isFunctionDeclaration(node) || ts.isMethodDeclaration(node) || ts.isFunctionExpression(node) || ts.isArrowFunction(node) || ts.isConstructorDeclaration(node)) {
+      if (isFunctionLikeNode(node)) {
         const functionName = ts.isConstructorDeclaration(node) ? 'constructor' : getFunctionName(node, sourceFile);
         if (!functions.has(functionName)) {
           functions.set(functionName, createEntry('function', functionName, ts.SyntaxKind[node.kind], sourceFile, node, readLine));
@@ -213,9 +224,9 @@ function collectManifest() {
 
       if (ts.isVariableDeclaration(node)) {
         const bindingNames = [];
-        appendUniqueBindingNames(bindingNames, node.name);
+        appendBindingNames(bindingNames, node.name);
         const variableKind = getVariableKind(node);
-        for (const bindingName of bindingNames) {
+        for (const bindingName of new Set(bindingNames)) {
           if (!variables.has(bindingName)) {
             variables.set(bindingName, createEntry('variable', bindingName, variableKind, sourceFile, node, readLine));
           }
@@ -223,9 +234,10 @@ function collectManifest() {
       }
 
       if (ts.isCallExpression(node) || ts.isNewExpression(node)) {
+        const expressionText = node.expression.getText(sourceFile);
         const callName = ts.isCallExpression(node)
-          ? node.expression.getText(sourceFile)
-          : `new ${node.expression.getText(sourceFile)}`;
+          ? expressionText
+          : `new ${expressionText}`;
 
         if (!interpreterCalls.has(callName)) {
           interpreterCalls.set(
@@ -250,13 +262,12 @@ function collectManifest() {
 
   return {
     manifestVersion: 1,
-    rootPath: repoRoot,
-    sourceRoot,
+    rootPath: manifestRoot,
+    sourceRoot: manifestSourceRoot,
     discoveryOrder: 'sorted-relative-path then depth-first AST traversal',
     filesScanned: files.map((filePath) => ({
       file: path.basename(filePath),
-      filepath: filePath,
-      relativePath: path.relative(repoRoot, filePath).replaceAll(path.sep, '/'),
+      filepath: path.relative(repoRoot, filePath).replaceAll(path.sep, '/'),
     })),
     functions: [...functions.values()],
     variables: [...variables.values()],
@@ -314,7 +325,8 @@ function verifyManifest(manifestPath) {
 
   let mismatchCount = 0;
   for (const entry of entries) {
-    const fileText = fs.readFileSync(entry.filepath, 'utf8');
+    const resolvedFilePath = path.resolve(repoRoot, entry.filepath);
+    const fileText = fs.readFileSync(resolvedFilePath, 'utf8');
     const readLine = createLineReader(fileText);
     const actualLine = readLine(entry.line);
     const matches = actualLine === entry.lineText;
@@ -324,7 +336,7 @@ function verifyManifest(manifestPath) {
     }
 
     process.stdout.write(
-      `${matches ? 'OK' : 'MISMATCH'} ${entry.relativePath}:${entry.line}:${entry.column} [${entry.category}:${entry.kind}:${entry.name}] ${JSON.stringify(actualLine)}\n`,
+      `${matches ? 'OK' : 'MISMATCH'} ${entry.filepath}:${entry.line}:${entry.column} [${entry.category}:${entry.kind}:${entry.name}] ${JSON.stringify(actualLine)}\n`,
     );
   }
 
@@ -338,7 +350,11 @@ function verifyManifest(manifestPath) {
 }
 
 function usage() {
-  process.stderr.write('Usage: node scripts/source-manifest.mjs <generate|verify> [manifestPath]\n');
+  process.stderr.write(
+    'Usage: node scripts/source-manifest.mjs <generate|verify> [manifestPath]\n'
+    + '  generate - Create a new manifest from the current src/**/*.ts files.\n'
+    + '  verify   - Re-read every manifest line reference from source and report mismatches.\n',
+  );
   process.exit(1);
 }
 
