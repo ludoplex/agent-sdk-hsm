@@ -47,12 +47,12 @@ server.setRequestHandler(ListToolsRequestSchema, async () => ({
     },
     {
       name: 'render_statemachine',
-      description: 'Render a plan HSM in .sm (compact), .hsm (verbose), JSON, or DOT format.',
+      description: 'Render a plan HSM in .sm (compact), .hsm (verbose), JSON, or table (ASCII state table) format.',
       inputSchema: {
         type: 'object' as const,
         properties: {
           plan: { type: 'object', description: 'Execution plan with HSM' },
-          format: { type: 'string', enum: ['sm', 'hsm', 'json', 'dot'], description: 'Output format' },
+          format: { type: 'string', enum: ['sm', 'hsm', 'json', 'table'], description: 'Output format' },
         },
         required: ['plan', 'format'],
       },
@@ -126,8 +126,8 @@ server.setRequestHandler(CallToolRequestSchema, async (request) => {
           case 'json':
             output = JSON.stringify(req.plan.hsm, null, 2);
             break;
-          case 'dot':
-            output = renderDot(req.plan.hsm);
+          case 'table':
+            output = renderTable(req.plan.hsm);
             break;
           default:
             throw new Error(`Unknown format: ${req.format}`);
@@ -182,32 +182,45 @@ server.setRequestHandler(CallToolRequestSchema, async (request) => {
   }
 });
 
-// ── DOT Renderer ────────────────────────────────────────────────────
+// ── ASCII State Table Renderer ──────────────────────────────────────
 
-function renderDot(hsm: import('./types.js').HSMDefinition): string {
-  const lines: string[] = [
-    `digraph ${hsm.name} {`,
-    '  rankdir=TB;',
-    '  node [shape=roundedbox, style=filled, fillcolor="#f0f0f0"];',
-    '',
-  ];
+function renderTable(hsm: import('./types.js').HSMDefinition): string {
+  const rows: { state: string; event: string; guard: string; target: string; action: string; enter: string; exit: string }[] = [];
 
   function walk(state: import('./types.js').HSMState, prefix: string): void {
-    const id = prefix ? `${prefix}_${state.name}` : state.name;
-    if (state.children && state.children.length > 0) {
-      lines.push(`  subgraph cluster_${id} {`);
-      lines.push(`    label="${state.name}";`);
-      lines.push(`    style=dashed;`);
-      for (const child of state.children) {
-        walk(child, id);
-      }
-      lines.push('  }');
+    const qualified = prefix ? `${prefix}.${state.name}` : state.name;
+
+    if (state.transitions.length === 0 && !state.enter && !state.exit) {
+      // Composite with no own transitions - just recurse
+    } else if (state.transitions.length === 0) {
+      rows.push({
+        state: qualified,
+        event: '-',
+        guard: '-',
+        target: '-',
+        action: '-',
+        enter: state.enter ?? '-',
+        exit: state.exit ?? '-',
+      });
     } else {
-      lines.push(`  ${id} [label="${state.name}"];`);
+      for (let i = 0; i < state.transitions.length; i++) {
+        const t = state.transitions[i];
+        rows.push({
+          state: i === 0 ? qualified : '',
+          event: t.event,
+          guard: t.guard ?? '-',
+          target: t.target,
+          action: t.action ?? '-',
+          enter: i === 0 ? (state.enter ?? '-') : '',
+          exit: i === 0 ? (state.exit ?? '-') : '',
+        });
+      }
     }
-    for (const t of state.transitions) {
-      const targetId = t.target.replace(/\./g, '_').replace(/\^/g, '');
-      lines.push(`  ${id} -> ${targetId} [label="${t.event}"];`);
+
+    if (state.children) {
+      for (const child of state.children) {
+        walk(child, qualified);
+      }
     }
   }
 
@@ -215,7 +228,28 @@ function renderDot(hsm: import('./types.js').HSMDefinition): string {
     walk(state, '');
   }
 
-  lines.push('}');
+  // Calculate column widths
+  const headers = ['State', 'Event', 'Guard', 'Target', 'Action', 'Enter', 'Exit'];
+  const keys: (keyof typeof rows[0])[] = ['state', 'event', 'guard', 'target', 'action', 'enter', 'exit'];
+  const widths = headers.map((h, i) => {
+    const key = keys[i];
+    return Math.max(h.length, ...rows.map(r => r[key].length));
+  });
+
+  const sep = '+' + widths.map(w => '-'.repeat(w + 2)).join('+') + '+';
+  const fmt = (vals: string[]) => '| ' + vals.map((v, i) => v.padEnd(widths[i])).join(' | ') + ' |';
+
+  const lines: string[] = [
+    `State Table: ${hsm.name} (v${hsm.version})`,
+    `Initial: ${hsm.initial}`,
+    '',
+    sep,
+    fmt(headers),
+    sep,
+    ...rows.map(r => fmt(keys.map(k => r[k]))),
+    sep,
+  ];
+
   return lines.join('\n');
 }
 
